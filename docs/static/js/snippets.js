@@ -1,5 +1,9 @@
 export function generate_snippet(id) {
-    return snippets[id].replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    if (snippets.hasOwnProperty(id)) {
+        return snippets[id];
+    } else {
+        return "";
+    }
 }
 
 var snippets = {};
@@ -16,14 +20,7 @@ int main (void) {
     fflush(stdout);
     fgets(word, MAX_LENGTH, stdin);
 
-    printf("\nWord square is:\n");
-
-    int string_length = strlen(word);
-    int i = 1;
-    while (i < string_length) {
-        printf("%s", word);
-        i++;
-    }
+    printf("%s", word);
   
     return 0;
 }
