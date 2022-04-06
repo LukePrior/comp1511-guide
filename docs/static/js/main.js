@@ -1,4 +1,5 @@
 import { defineElements } from '@runno/runtime'
+import { generate_snippet } from './snippets.js'
 
 // Fix for Runno
 window.process = window.process || {
@@ -8,6 +9,8 @@ window.process = window.process || {
       NODE_DEBUG: false,
     }
 };
+
+console.log(generate_snippet("1"));
 
 // Initialise Runno
 defineElements();
