@@ -1,0 +1,16 @@
+{
+  "name": "comp1511-guide",
+  "version": "1.0.0",
+  "description": "COMP1511 Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild static/js/main.js --bundle --outfile=static/js/index.js"
+  },
+  "author": "Luke Prior",
+  "license": "ISC",
+  "dependencies": {
+    "@runno/runtime": "^0.3.0",
+    "esbuild": "^0.14.32"
+  }
+}
