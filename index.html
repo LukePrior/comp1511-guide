@@ -22,11 +22,106 @@
 
 <body>
   <h1>The Ultimate COMP1511 Guide!</h1>
-  <runno-run id="1" runtime="clang" editor controls>
-  </runno-run>
-  <button class="show-solution" id="1">Solution</button>
-  <button class="test-style" id="1">Style</button>
-  <button class="test-code" id="1">Test</button>
+  <div class="question">
+    <h2>Addition (*)</h2>
+    <p>Create a program which will add together the number of students and tutors in a class.</p>
+    <p>This program should ask for two integers using the message Please enter the number of students and tutors: and then display the sum of the integers as <code>students</code> + <code>tutors</code> = <code>sum</code>.</p>
+    <p><i>Note: You can assume that the values entered will always be 2 whole numbers (i.e integers).</i></p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="1" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="1">Reset</button>
+    <button class="show-solution" id="1">Solution</button>
+    <button class="test-code" id="1">Test (WIP)</button>
+    <button class="save-code" id="1">Save</button>
+  </div>
+  <div class="question">
+    <h2>Don't Be So Negative! (*)</h2>
+    <p>Write a program that uses scanf to get a number from a user and prints "Don't be so negative!" if they entered a negative number.</p>
+    <p>If the number is positive, the program should print "You have entered a positive number."</p>
+    <p>If the user enters the number 0, the program should print "You have entered zero."</p>
+    <p><i>Note: you can assume that the number will always be a whole number (i.e. an integer)
+      Your program should behave as follows:</i></p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="2" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="2">Reset</button>
+    <button class="show-solution" id="2">Solution</button>
+    <button class="test-code" id="2">Test (WIP)</button>
+  </div>
+  <div class="question">
+    <h2>Print Letters, Given Their Numbers (*)</h2>
+    <p>Write a C program that prints a letter from the alphabet in either uppercase or lowercase.</p>
+    <p>First, scan in a character. This character will determine whether the letter printed is in uppercase or lowercase."</p>
+    <p>Should the character be 'y' or 'n', i.e. 'yes' or 'no', the letter will be uppercase or lowercase respectively. If given any other character, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
+    <p><i>Note: "Terminate the program" does NOT mean an 'exit' function! What is the line that occurs at the end of every main function to terminate the program? (Starts with 'r')</i></p>
+    <p>Secondly, scan in an integer. This integer is the index we will use to determine which letter of the alphabet is printed.</p>
+    <p>Should the integer be a number between 1 and 26 (inclusive), print the corresponding letter of the alphabet. If it is outside of the range, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
+    <p>For example, index 1 will correspond to 'A', index 2 will correspond to 'B' and so on till we reach index 26 which will correspond to 'Z'.</p>
+    <p>ASSUMPTIONS MODAL</p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="3" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="3">Reset</button>
+    <button class="show-solution" id="3">Solution</button>
+    <button class="test-code" id="3">Test (WIP)</button>
+  </div>
+  <div class="question">
+    <h2>Leap Year Calculator (**)</h2>
+    <p>Write a C program that reads a year and then prints whether that year is a leap year.</p>
+    <p>ASSUMPTIONS MODAL</p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="4" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="4">Reset</button>
+    <button class="show-solution" id="4">Solution</button>
+    <button class="test-code" id="4">Test (WIP)</button>
+  </div>
+  <div class="question">
+    <h2>Dice Range (**)</h2>
+    <p>We will often roll multiple dice at the same time.</p>
+    <p>Write a C program dice_range.c that reads the number of sides on a set of dice and how many of them are being rolled. It then outputs the range of possible totals that these dice can produce as well as the average value.</p>
+    Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.
+    <p><i>Note: You can assume that the user will always enter 2 integers.</i></p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="5" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="5">Reset</button>
+    <button class="show-solution" id="5">Solution</button>
+    <button class="test-code" id="5">Test (WIP)</button>
+  </div>
+  <div class="question">
+    <h2>Word Addition (***)</h2>
+    <p>Create a program that asks for two integers using the message Please enter two integers: and then displays the sum of the integers as <code>n</code> + <code>n</code> = <code>sum</code>.</p>
+    <p>Any numbers that are between zero and ten should appear as words. This also applies to negative numbers between negative ten and zero. All other numbers should appear as decimal integers.</p>
+    <p><i>Note: Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.</i></p>
+    <p><i>Note: there is no special trick to convert numbers to words in this exercise. It will require many many if statements, and copy/paste is your friend.</i></p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="6" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="6">Reset</button>
+    <button class="show-solution" id="6">Solution</button>
+    <button class="test-code" id="6">Test (WIP)</button>
+  </div>
+  <div class="question">
+    <h2>Create a Game! (****)</h2>
+    <p>Write a C program which reads in integers and/or characters until the user wins or loses the game.</p>
+    <p>This is the starter code for the exercise. Add to it to create an adventure game.</p>
+    <p>ASSUMPTIONS MODAL</p>
+    <p>HINT MODAL</p>
+    <p>EXAMPLE MODAL</p>
+    <runno-run id="7" runtime="clang" editor controls>
+    </runno-run>
+    <button class="reset-code" id="7">Reset</button>
+    <button class="show-solution" id="7">Solution</button>
+    <button class="test-code" id="7">Test (WIP)</button>
+  </div>
   <script>
     window.process = window.process || {
       platform: null,
