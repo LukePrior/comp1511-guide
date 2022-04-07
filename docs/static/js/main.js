@@ -27,6 +27,7 @@ function showSolution(e) {
     var selector = "#"+e.id
     var snippet = $(selector);
     if (confirm("Reveal solution (this will overide any existing code)")) {
+        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
         snippet[0].setEditorProgram("cpp", "clang", generate_solution(e.id));
     }
 }
@@ -35,6 +36,7 @@ function resetCode(e) {
     var selector = "#"+e.id
     var snippet = $(selector);
     if (confirm("Reset code (this will overide any existing code)")) {
+        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
         snippet[0].setEditorProgram("cpp", "clang", generate_snippet(e.id));
     }
 }
