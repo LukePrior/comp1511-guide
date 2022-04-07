@@ -1,11 +1,29 @@
 import { defineElements } from '@runno/runtime'
-import { generate_snippet } from './snippets.js'
+import { generate_snippet, generate_solution } from './snippets.js'
+import jQuery from "jquery";
+window.$ = window.jQuery = jQuery;
 
 // Inset code snippets to webpage
-var snippets = document.querySelectorAll("p.snippet");
-for (var i=0; i<snippets.length; i++) {
-    snippets[i].replaceWith(generate_snippet(snippets[i].id));
+function testSet() {
+    var snippets = $("runno-run");
+    for (var i=0; i<snippets.length; i++) {
+        snippets[i].setEditorProgram("cpp", "clang", generate_snippet(snippets[i].id));
+    }
+    $('.show-solution').click(function (event) {
+        event.preventDefault();
+        showSolution(this);
+    });
 }
 
-// Initialise Runno
-defineElements();
+function showSolution(e) {
+    var selector = "#"+e.id
+    var snippet = $(selector);
+    snippet[0].setEditorProgram("cpp", "clang", generate_solution(e.id));
+}
+
+async function main() {
+    await defineElements();
+    testSet();
+}
+
+main();

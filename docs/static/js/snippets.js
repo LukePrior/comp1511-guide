@@ -6,10 +6,19 @@ export function generate_snippet(id) {
     }
 }
 
-var snippets = {};
+export function generate_solution(id) {
+    if (solutions.hasOwnProperty(id)) {
+        return solutions[id];
+    } else {
+        return "";
+    }
+}
 
-snippets["1"] = `
-#include <stdio.h>
+var snippets = {};
+var solutions = {};
+
+snippets["1"] = 
+`#include <stdio.h>
 #include <string.h>
 
 #define MAX_LENGTH 1024
@@ -23,5 +32,21 @@ int main (void) {
     printf("%s", word);
   
     return 0;
-}
-`
+}`
+
+solutions["1"] = 
+`#include <stdio.h>
+#include <string.h>
+
+#define MAX_LENGTH 1024
+
+int main (void) {
+    char word[MAX_LENGTH];
+    printf("Input word: ");
+    fflush(stdout);
+    fgets(word, MAX_LENGTH, stdin);
+
+    printf("%s", word);
+  
+    return 0;
+}`
