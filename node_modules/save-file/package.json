@@ -1,0 +1,49 @@
+{
+  "name": "save-file",
+  "version": "2.3.1",
+  "description": "Save file dialog in browser, write file to disk in node",
+  "main": "index.js",
+  "browser": "browser.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dy/save-file"
+  },
+  "keywords": [
+    "file",
+    "download",
+    "blob",
+    "arraybuffer",
+    "convert",
+    "array",
+    "save"
+  ],
+  "author": "Dima Yv <dfcreative@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dy/save-file/issues"
+  },
+  "homepage": "https://github.com/dy/save-file",
+  "dependencies": {
+    "file-saver": "^2.0.0-rc.4",
+    "is-blob": "^1.0.0",
+    "is-buffer": "^2.0.0",
+    "simple-mime": "^0.1.0",
+    "to-array-buffer": "^3.2.0",
+    "write": "^1.0.0"
+  },
+  "devDependencies": {
+    "file-type": "^10.4.0",
+    "typedarray-to-buffer": "^3.1.2",
+    "is-relative": "^1.0.0",
+    "data-uri-to-buffer": "1.0.0",
+    "arraybuffer-to-buffer": "0.0.5",
+    "buffer-to-arraybuffer": "0.0.5",
+    "del": "^3.0.0",
+    "is-browser": "^2.1.0",
+    "path-exists": "^3.0.0",
+    "tape": "^4.9.1"
+  }
+}

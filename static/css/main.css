@@ -1,0 +1,10 @@
+runno-run {
+    background-color: black;
+    border: solid;
+    --runno-terminal-height: 150px;
+}
+
+body {
+    width: 60vw;
+    margin: auto;
+}
