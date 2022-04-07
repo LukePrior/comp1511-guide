@@ -1,5 +1,5 @@
 import { defineElements } from '@runno/runtime'
-import { generate_snippet, generate_solution } from './snippets.js'
+import { generate_snippet, generate_solution, get_name } from './snippets.js'
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
@@ -45,20 +45,38 @@ async function saveCode(e) {
 
     var code = await snippet[0].getEditorProgram();
 
-    var file = new File([code], "code.c", {
+    var file = new File([code], get_name(e.id), {
         type: "text/plain",
     });
 
-    const handle = await window.showSaveFilePicker({
-        suggestedName: 'code.c',
-        types: [{
-          accept: {
-            'text/plain': ['.c'],
-          },
-        }],
-    });
-
-    console.log(URL.createObjectURL(file));
+    if("showSaveFilePicker" in window) {
+        try {
+          const file = await window.showSaveFilePicker({
+            suggestedName: 'code.c',
+            types: [
+              {
+                accept: {"text/plain": [".c"]}
+              }
+            ]
+          })
+          const writable = await file.createWritable();
+          await writable.write(code);
+          await writable.close();
+        } catch (e) {
+          console.error(e)
+        }
+      } else {
+        var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = get_name(e.id);
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);  
+        }, 0); 
+      }
 }
 
 async function main() {
