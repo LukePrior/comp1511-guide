@@ -2,9 +2,12 @@ runno-run {
     background-color: black;
     border: solid;
     --runno-terminal-height: 150px;
+    --runno-terminal-min-height: 150px;
+    --runno-editor-height: 40vh;
+    --runno-editor-max-height: 40vh;
 }
 
 body {
-    width: 60vw;
+    max-width: 56rem;
     margin: auto;
 }
