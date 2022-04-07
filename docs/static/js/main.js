@@ -18,7 +18,9 @@ function testSet() {
 function showSolution(e) {
     var selector = "#"+e.id
     var snippet = $(selector);
-    snippet[0].setEditorProgram("cpp", "clang", generate_solution(e.id));
+    if (confirm("Reveal solution (this will overide any existing code)")) {
+        snippet[0].setEditorProgram("cpp", "clang", generate_solution(e.id));
+    }
 }
 
 async function main() {
