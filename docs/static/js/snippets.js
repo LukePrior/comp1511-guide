@@ -105,6 +105,7 @@ int main(void) {
 
     // Get the two numbers from the user.
     printf("Please enter the number of students and tutors: ");
+    fflush(stdout);
     scanf("%d %d", &x, &y);
 
     // Calculate the sum of the two numbers, and store it in a variable.
@@ -146,6 +147,7 @@ int main(void) {
 
     char is_uppercase;
     printf("Uppercase: ");
+    fflush(stdout);
     scanf("%c", &is_uppercase);
 
     if (is_uppercase != 'y' && is_uppercase != 'n') {
@@ -156,6 +158,7 @@ int main(void) {
 
     int index;
     printf("Index: ");
+    fflush(stdout);
     scanf("%d", &index);
 
     if (index < 1 || index > NUM_ALPHABET) {
@@ -182,6 +185,7 @@ int main(void) {
     int year;
 
     printf("Enter year: ");
+    fflush(stdout);
     if (scanf("%d", &year) != 1) {
         return 1;
     }
@@ -207,8 +211,10 @@ int main(void) {
     
     // scan in dice stats
     printf("Enter the number of sides on your dice: ");
+    fflush(stdout);
     scanf("%d", &diceSize);
     printf("Enter the number of dice being rolled: ");
+    fflush(stdout);
     scanf("%d", &numDice);
 
     // calculate lowest and highest values
@@ -234,6 +240,7 @@ solutions["6"] =
 int main(void) {
     int num1, num2;
     printf("Please enter two integers: ");
+    fflush(stdout);
     scanf("%d %d", &num1, &num2);
     int sum = num1 + num2;
 
@@ -409,6 +416,7 @@ int main(void) {
     while (1) {
         printf("Guess the number between 0 and %d: ", MAX_NUMBER);
         int guess;
+        fflush(stdout);
         scanf("%d", &guess);
         
         if (guess == rand) {
