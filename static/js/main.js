@@ -49,7 +49,7 @@ async function saveCode(e) {
         type: "text/plain",
     });
 
-    const handle = await file.showSaveFilePicker({
+    const handle = await window.showSaveFilePicker({
         suggestedName: 'code.c',
         types: [{
           accept: {
