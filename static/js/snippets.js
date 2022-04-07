@@ -14,8 +14,25 @@ export function generate_solution(id) {
     }
 }
 
+export function get_name(id) {
+    if (names.hasOwnProperty(id)) {
+        return names[id];
+    } else {
+        return "";
+    }
+}
+
 var snippets = {};
 var solutions = {};
+var names = {};
+
+names[1] = "addition.c";
+names[2] = "negative.c";
+names[3] = "get_letter.c";
+names[4] = "is_leap_year.c";
+names[5] = "dice_range.c";
+names[6] = "word_addition.c";
+names[7] = "text_game.c";
 
 snippets["1"] = 
 `#include <stdio.h>
