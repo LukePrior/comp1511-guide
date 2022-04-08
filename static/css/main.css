@@ -18,6 +18,12 @@ body {
     background-color: #121212;
 }
 
+@media (max-width: 56rem) {
+    body {
+      max-width: 90vw;
+    }
+  }
+
 * {
     color: rgba(255, 255, 255, 1.0);
     font-family: Helvetica, sans-serif;
@@ -39,12 +45,12 @@ button {
     background-color: #343434; /* 16dp elevation */
     border: none;
     color: rgba(255,255,255,.9);
-    padding: 15px 32px;
+    padding: 1rem 2rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 10px 5px;
+    font-size: 1rem;
+    margin: 0.5rem 0.25rem;
     transition: 0.3s;
 }
 

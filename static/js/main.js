@@ -3,6 +3,13 @@ import { generate_snippet, generate_solution, get_name, get_tests } from './snip
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
+// Register Service worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+    });
+}
+
 // Inset code snippets to webpage
 function testSet() {
     var snippets = $("runno-run");
