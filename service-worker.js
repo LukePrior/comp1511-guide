@@ -23,9 +23,19 @@ self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => {
         //const cacheList = precachedAssets.concat(permenantCachedAssets);
         //console.log(cacheList);
-        return cache.addAll(precachedAssets);
+        fillServiceWorkerCache();
     }));
   });
+
+const fillServiceWorkerCache = function () {
+    return caches.open(cacheName).then(function (cache) {
+        return Promise.all(
+            precachedAssets.map(function (url) {
+                return cache.add(url)
+            })
+        );
+    });
+};
   
 
 self.addEventListener('fetch', function (event) {
@@ -35,8 +45,10 @@ self.addEventListener('fetch', function (event) {
     // ToDo refesh isPrecachedRequest
     if (isPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
+            console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
+    } else {
+        console.log("Fallback: " + event.request.url);
     }
-    console.log(event.request.url);
-  });
+});
