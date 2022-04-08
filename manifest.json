@@ -3,25 +3,20 @@
     "name": "Ultimate COMP1511 Guide!",
     "icons": [
       {
-        "src": "/static/img/icons-vector.svg",
-        "type": "image/svg+xml",
-        "sizes": "512x512"
-      },
-      {
-        "src": "/static/img/icons-vector.svg",
+        "src": "/static/img/android-chrome-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "/static/img/icons-vector.svg",
+        "src": "/static/img/android-chrome-512x512.png",
         "type": "image/png",
         "sizes": "512x512"
       }
     ],
     "start_url": "/",
-    "background_color": "#3367D6",
+    "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#3367D6",
+    "theme_color": "#FFC105",
     "description": "The Ultimate COMP1511 Guide!"
   }
