@@ -1,5 +1,10 @@
+importScripts('static/js/idb-keyval-iife.min.js');
+
 // Establish cache
 const cacheName = 'main_cache';
+
+//Database for graphql argh
+const store = new idbKeyval.Store('GraphQL-Cache', 'PostResponses');
 
 // Assets to precache but reload
 const precachedAssets = [
@@ -18,9 +23,6 @@ const permenantCachedAssets = [
     'https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz'
 ];
 
-const graphQL = "https://registry.wapm.io/graphql";
-const graphQLResult = {"data":{"command":{"command":"runno-clang","module":{"name":"clang","abi":"wasi","source":"clang.wasm"},"packageVersion":{"version":"0.1.2","package":{"name":"taybenlor/runno-clang","displayName":"taybenlor/runno-clang"},"filesystem":[{"wasm":"/sys","host":"sysroot"}],"distribution":{"downloadUrl":"https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz"},"modules":[{"name":"clang","publicUrl":"https://registry-cdn.wapm.io/contents/taybenlor/runno-clang/0.1.2/clang.wasm","abi":"wasi"},{"name":"wasm-ld","publicUrl":"https://registry-cdn.wapm.io/contents/taybenlor/runno-clang/0.1.2/wasm-ld.wasm","abi":"wasi"}],"commands":[{"command":"runno-clang","module":{"name":"clang","abi":"wasi","source":"clang.wasm"}},{"command":"runno-wasm-ld","module":{"name":"wasm-ld","abi":"wasi","source":"wasm-ld.wasm"}}]}}}}
-
 // Precache assets on install
 self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => {
@@ -38,7 +40,57 @@ const fillServiceWorkerCache = function () {
         );
     });
 };
+
+// https://medium.com/@jono/cache-graphql-post-requests-with-service-worker-100a822a388a
+async function staleWhileRevalidate(event) {
+    let cachedResponse = await getCache(event.request.clone());
+    let fetchPromise = fetch(event.request.clone())
+      .then((response) => {
+        setCache(event.request.clone(), response.clone());
+        return response;
+      })
+    return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
+}
+
+async function serializeResponse(response) {
+    let serializedHeaders = {};
+    for (var entry of response.headers.entries()) {
+      serializedHeaders[entry[0]] = entry[1];
+    }
+    let serialized = {
+      headers: serializedHeaders,
+      status: response.status,
+      statusText: response.statusText
+    };
+    serialized.body = await response.json();
+    return serialized;
+}
   
+async function setCache(request, response) {
+    let body = await request.json();
+    let id = CryptoJS.MD5(body.query).toString();
+  
+    var entry = {
+      query: body.query,
+      response: await serializeResponse(response),
+      timestamp: Date.now()
+    };
+    idbKeyval.set(id, entry, store);
+}
+  
+async function getCache(request) {
+    let data;
+    try {
+      let body = await request.json();
+      let id = CryptoJS.MD5(body.query).toString();
+      data = await idbKeyval.get(id, store);
+      if (!data) return null;
+  
+      return new Response(JSON.stringify(data.response.body), data.response);
+    } catch (err) {
+      return null;
+    }
+}
 
 self.addEventListener('fetch', function (event) {
     const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
@@ -47,14 +99,9 @@ self.addEventListener('fetch', function (event) {
             console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
-    } 
-    /*
-    else if (event.request.url == graphQL) { //GraphQL
-        console.log("Serve: " + event.request.url);
-        return graphQLResult;
-    } 
-    */
-    else {
+    } else if (event.request.method === 'POST') { //GraphQL
+        event.respondWith(staleWhileRevalidate(event));
+    }  else {
         console.log("Serve: " + event.request.url);
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request).then((cachedResponse) => {
