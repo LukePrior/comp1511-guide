@@ -3,7 +3,7 @@ const cacheName = 'main_cache';
 
 // Assets to precache but reload
 const precachedAssets = [
-    '/index.html',
+    '/',
     '/static/css/main.css',
     '/static/js/index.js',
     '/manifest.json',
@@ -67,11 +67,15 @@ self.addEventListener('fetch', function (event) {
     } else {
         console.log("Fallback: " + event.request.url);
         event.respondWith(caches.open(cacheName).then((cache) => {
-            return fetch(event.request).then((fetchedResponse) => {
-                cache.put(event.request, fetchedResponse.clone());
-    
-                return fetchedResponse;
+            return cache.match(event.request).then((cachedResponse) => {
+              const fetchedResponse = fetch(event.request).then((networkResponse) => {
+                cache.put(event.request, networkResponse.clone());
+      
+                return networkResponse;
+              });
+      
+              return cachedResponse || fetchedResponse;
             });
-        }));
+          }));
     }
 });
