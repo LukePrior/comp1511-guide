@@ -37,11 +37,11 @@ h3 {
     color: rgba(255, 255, 255, 0.8);
 }
 
-p, i {
+p, i, li {
     color: rgba(255, 255, 255, 0.7);
 }
 
-button {
+.button {
     background-color: #343434; /* 16dp elevation */
     border: none;
     color: rgba(255,255,255,.9);
@@ -54,7 +54,64 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
+.button:hover {
     cursor: pointer;
     background-color: #383838; /* 24dp elevation */
+}
+
+.collapsible {
+    background-color: #2e2e2e; /* 12dp elevation */
+    color: rgba(255,255,255,.9);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-radius: 15px;
+    transition: border-radius 0.2s ease-out;
+}
+  
+.active, .collapsible:hover {
+    background-color: #343434; /* 16dp elevation */
+}
+
+.active.collapsible {
+    border-radius: 15px 15px 0px 0px;
+}
+  
+.collapsible:after {
+    content: '\002B';
+    color: rgba(255,255,255,.9);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2212";
+}
+  
+.collapsible_content {
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out 0.2s, border-radius 0.2s ease-out;
+    border-radius: 0px 0px 15px 15px;
+    background-color: #383838; /* 24dp elevation */
+}
+
+code.block {
+    background-color: #424242;
+    color: rgba(255,255,255,.9);
+    border: 1px solid #000;
+    display: block;
+    white-space: pre-wrap;
+    padding: 5px;
+    margin: 10px;
+}
+
+code.block b {
+    color: rgba(255,255,255,.9);
 }

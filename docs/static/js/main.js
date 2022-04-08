@@ -44,6 +44,21 @@ function testSet() {
     getLocalSave()
 }
 
+function setupButtons() {
+    $(".collapsible").click(function (event) {
+        event.preventDefault();
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+            content.style.maxHeight = null;
+            content.style.borderRadius = "15px";
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            content.style.borderRadius = "0px 0px 15px 15px";
+        } 
+    });
+}
+
 async function runCode(e) {
   var selector = "#"+e.id
   var snippet = $(selector);
@@ -152,6 +167,7 @@ async function loadCode(e) {
 async function main() {
     await defineElements();
     testSet();
+    setupButtons()
 }
 
 main();
