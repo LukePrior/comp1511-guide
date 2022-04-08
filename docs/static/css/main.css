@@ -1,13 +1,54 @@
 runno-run {
     background-color: black;
     border: solid;
+    border-color: #383838;
     --runno-terminal-height: 150px;
     --runno-terminal-min-height: 150px;
     --runno-editor-height: 40vh;
     --runno-editor-max-height: 40vh;
 }
 
+code {
+    color: rgba(255, 193, 5, 1.0);
+}
+
 body {
     max-width: 56rem;
     margin: auto;
+    background-color: #121212;
+}
+
+* {
+    color: rgba(255, 255, 255, 1.0);
+    font-family: Helvetica, sans-serif;
+}
+
+h2 {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+h3 {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+p, i {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+button {
+    background-color: #343434; /* 16dp elevation */
+    border: none;
+    color: rgba(255,255,255,.9);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #383838; /* 24dp elevation */
 }
