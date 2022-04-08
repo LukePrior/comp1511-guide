@@ -1,5 +1,5 @@
 import { defineElements } from '@runno/runtime'
-import { generate_snippet, generate_solution, get_name } from './snippets.js'
+import { generate_snippet, generate_solution, get_name, get_tests } from './snippets.js'
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 
@@ -7,7 +7,7 @@ window.$ = window.jQuery = jQuery;
 function testSet() {
     var snippets = $("runno-run");
     for (var i=0; i<snippets.length; i++) {
-        snippets[i].setEditorProgram("cpp", "clang", generate_snippet(snippets[i].id));
+        snippets[i].setEditorProgram("cpp", "clangpp", generate_snippet(snippets[i].id));
     }
     $('.show-solution').click(function (event) {
         event.preventDefault();
@@ -17,10 +17,18 @@ function testSet() {
         event.preventDefault();
         resetCode(this);
     });
+    $('.test-code').click(function (event) {
+      event.preventDefault();
+      testCode(this);
+  });
     $('.save-code').click(function (event) {
         event.preventDefault();
         saveCode(this);
     });
+    $('.hidden-loader').change(function (event) {
+      event.preventDefault();
+      loadCode(this);
+  });
 }
 
 function showSolution(e) {
@@ -28,7 +36,7 @@ function showSolution(e) {
     var snippet = $(selector);
     if (confirm("Reveal solution (this will overide any existing code)")) {
         snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
-        snippet[0].setEditorProgram("cpp", "clang", generate_solution(e.id));
+        snippet[0].setEditorProgram("cpp", "clangpp", generate_solution(e.id));
     }
 }
 
@@ -37,8 +45,20 @@ function resetCode(e) {
     var snippet = $(selector);
     if (confirm("Reset code (this will overide any existing code)")) {
         snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
-        snippet[0].setEditorProgram("cpp", "clang", generate_snippet(e.id));
+        snippet[0].setEditorProgram("cpp", "clangpp", generate_snippet(e.id));
     }
+}
+
+async function testCode(e) {
+  var selector = "#"+e.id
+  var snippet = $(selector);
+  var code = await snippet[0].getEditorProgram();
+  var tests = get_tests(e.id);
+  for (var test in tests) {
+    stdin = tests[test]
+    var result = await snippet[0].headlessRunCode("clangpp", code, stdin); // waiting for fix
+    console.log(result);
+  }
 }
 
 async function saveCode(e) {
@@ -79,6 +99,23 @@ async function saveCode(e) {
             window.URL.revokeObjectURL(url);  
         }, 0); 
       }
+}
+
+async function loadCode(e) {
+  var selector = "#"+e.id.replace("load", "");
+  var snippet = $(selector);
+  if (e.files[0]) {
+    var file = e.files[0];
+    var reader = new FileReader();
+    reader.readAsText(file, "UTF-8");
+    reader.onload = function (evt) {
+        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
+        snippet[0].setEditorProgram("cpp", "clangpp", evt.target.result);
+    }
+    reader.onerror = function (evt) {
+      console.error(evt);
+    }
+  }
 }
 
 async function main() {
