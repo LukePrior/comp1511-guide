@@ -41,41 +41,33 @@ const fillServiceWorkerCache = function () {
   
 
 self.addEventListener('fetch', function (event) {
-    const url = new URL(event.request.url);
-    const isPrecachedRequest = precachedAssets.includes(url.pathname);
     const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
-    if (isPrecachedRequest) {
-        event.respondWith(caches.open(cacheName).then((cache) => {
-            console.log("Serve: " + event.request.url);
-            return cache.match(event.request.url).then((cachedResponse) => {
-                const fetchedResponse = fetch(event.request).then((networkResponse) => {
-                  cache.put(event.request, networkResponse.clone());
-        
-                  return networkResponse;
-                });
-                return cachedResponse || fetchedResponse;
-            });
-        }));
-    } else if (isPermenantPrecachedRequest) {
+    if (isPermenantPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
-    } else if (event.request.url == graphQL) { //GraphQL
+    } 
+    /*
+    else if (event.request.url == graphQL) { //GraphQL
         console.log("Serve: " + event.request.url);
         return graphQLResult;
-    } else {
-        console.log("Fallback: " + event.request.url);
+    } 
+    */
+    else {
+        console.log("Serve: " + event.request.url);
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request).then((cachedResponse) => {
-              const fetchedResponse = fetch(event.request).then((networkResponse) => {
-                cache.put(event.request, networkResponse.clone());
+                const fetchedResponse = fetch(event.request).then((networkResponse) => {
+                    cache.put(event.request, networkResponse.clone());
       
-                return networkResponse;
-              });
+                    return networkResponse;
+                });
+
+                console.log(networkResponse);
       
-              return cachedResponse || fetchedResponse;
+                return cachedResponse || fetchedResponse;
             });
-          }));
+        }));
     }
 });
