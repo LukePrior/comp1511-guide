@@ -22,9 +22,18 @@ export function get_name(id) {
     }
 }
 
+export function get_tests(id) {
+    if (tests.hasOwnProperty(id)) {
+        return tests[id];
+    } else {
+        return "";
+    }
+}
+
 var snippets = {};
 var solutions = {};
 var names = {};
+var tests = {};
 
 names[1] = "addition.c";
 names[2] = "negative.c";
@@ -440,3 +449,6 @@ int main(void) {
     
     return 0;
 }`
+
+tests["1"] = [];
+tests["1"].push('5 5');

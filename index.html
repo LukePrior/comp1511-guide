@@ -29,12 +29,14 @@
     <p><i>Note: You can assume that the values entered will always be 2 whole numbers (i.e integers).</i></p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="1" runtime="clang" editor controls>
+    <runno-run id="1" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="1">Reset</button>
     <button class="show-solution" id="1">Solution</button>
     <button class="test-code" id="1">Test (WIP)</button>
     <button class="save-code" id="1">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load1" type="file" accept=".c"></input>
+    <button class="load-code" id="1" onclick="document.getElementById('load1').click();">Load</button>
   </div>
   <div class="question">
     <h2>Don't Be So Negative! (*)</h2>
@@ -45,12 +47,14 @@
       Your program should behave as follows:</i></p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="2" runtime="clang" editor controls>
+    <runno-run id="2" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="2">Reset</button>
     <button class="show-solution" id="2">Solution</button>
     <button class="test-code" id="2">Test (WIP)</button>
     <button class="save-code" id="2">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load2" type="file" accept=".c"></input>
+    <button class="load-code" id="2" onclick="document.getElementById('load2').click();">Load</button>
   </div>
   <div class="question">
     <h2>Print Letters, Given Their Numbers (*)</h2>
@@ -64,12 +68,14 @@
     <p>ASSUMPTIONS MODAL</p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="3" runtime="clang" editor controls>
+    <runno-run id="3" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="3">Reset</button>
     <button class="show-solution" id="3">Solution</button>
     <button class="test-code" id="3">Test (WIP)</button>
     <button class="save-code" id="3">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load3" type="file" accept=".c"></input>
+    <button class="load-code" id="3" onclick="document.getElementById('load3').click();">Load</button>
   </div>
   <div class="question">
     <h2>Leap Year Calculator (**)</h2>
@@ -77,12 +83,14 @@
     <p>ASSUMPTIONS MODAL</p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="4" runtime="clang" editor controls>
+    <runno-run id="4" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="4">Reset</button>
     <button class="show-solution" id="4">Solution</button>
     <button class="test-code" id="4">Test (WIP)</button>
     <button class="save-code" id="4">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load4" type="file" accept=".c"></input>
+    <button class="load-code" id="4" onclick="document.getElementById('load4').click();">Load</button>
   </div>
   <div class="question">
     <h2>Dice Range (**)</h2>
@@ -92,12 +100,14 @@
     <p><i>Note: You can assume that the user will always enter 2 integers.</i></p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="5" runtime="clang" editor controls>
+    <runno-run id="5" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="5">Reset</button>
     <button class="show-solution" id="5">Solution</button>
     <button class="test-code" id="5">Test (WIP)</button>
     <button class="save-code" id="5">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load5" type="file" accept=".c"></input>
+    <button class="load-code" id="5" onclick="document.getElementById('load5').click();">Load</button>
   </div>
   <div class="question">
     <h2>Word Addition (***)</h2>
@@ -107,12 +117,14 @@
     <p><i>Note: there is no special trick to convert numbers to words in this exercise. It will require many many if statements, and copy/paste is your friend.</i></p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="6" runtime="clang" editor controls>
+    <runno-run id="6" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="6">Reset</button>
     <button class="show-solution" id="6">Solution</button>
     <button class="test-code" id="6">Test (WIP)</button>
     <button class="save-code" id="6">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load6" type="file" accept=".c"></input>
+    <button class="load-code" id="6" onclick="document.getElementById('load6').click();">Load</button>
   </div>
   <div class="question">
     <h2>Create a Game! (****)</h2>
@@ -121,12 +133,14 @@
     <p>ASSUMPTIONS MODAL</p>
     <p>HINT MODAL</p>
     <p>EXAMPLE MODAL</p>
-    <runno-run id="7" runtime="clang" editor controls>
+    <runno-run id="7" runtime="clangpp" editor controls>
     </runno-run>
     <button class="reset-code" id="7">Reset</button>
     <button class="show-solution" id="7">Solution</button>
     <button class="test-code" id="7">Test (WIP)</button>
     <button class="save-code" id="7">Save</button>
+    <input class="hidden-loader" style="display:none;" id="load7" type="file" accept=".c"></input>
+    <button class="load-code" id="7" onclick="document.getElementById('load7').click();">Load</button>
   </div>
   <script>
     window.process = window.process || {
@@ -138,5 +152,6 @@
     };
   </script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/export.js"></script>
 </body>
 </html>
