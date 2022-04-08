@@ -1,3 +1,4 @@
+importScripts('static/js/md5.js');
 importScripts('static/js/idb-keyval-iife.min.js');
 
 // Establish cache
@@ -11,6 +12,8 @@ const precachedAssets = [
     '/',
     '/static/css/main.css',
     '/static/js/index.js',
+    '/static/js/md5.js',
+    '/static/js/idb-keyval-iife.min.js',
     '/manifest.json',
     '/static/img/favicon.ico',
     '/static/img/android-chrome-192x192.png',
