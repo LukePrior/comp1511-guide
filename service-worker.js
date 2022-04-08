@@ -61,10 +61,9 @@ self.addEventListener('fetch', function (event) {
                 const fetchedResponse = fetch(event.request).then((networkResponse) => {
                     cache.put(event.request, networkResponse.clone());
       
+                    console.log(networkResponse);
                     return networkResponse;
                 });
-
-                console.log(networkResponse);
       
                 return cachedResponse || fetchedResponse;
             });
