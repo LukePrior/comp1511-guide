@@ -46,7 +46,14 @@ self.addEventListener('fetch', function (event) {
     if (isPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             console.log("Serve: " + event.request.url);
-            return cache.match(event.request.url);
+            return cache.match(event.request.url).then((cachedResponse) => {
+                const fetchedResponse = fetch(event.request).then((networkResponse) => {
+                  cache.put(event.request, networkResponse.clone());
+        
+                  return networkResponse;
+                });
+                return cachedResponse || fetchedResponse;
+            });
         }));
     } else if (isPermenantPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
@@ -58,5 +65,12 @@ self.addEventListener('fetch', function (event) {
         return graphQLResult;
     } else {
         console.log("Fallback: " + event.request.url);
+        event.respondWith(caches.open(cacheName).then((cache) => {
+            return fetch(event.request).then((fetchedResponse) => {
+                cache.put(event.request, fetchedResponse.clone());
+    
+                return fetchedResponse;
+            });
+        }));
     }
 });
