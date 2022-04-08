@@ -21,8 +21,9 @@ const permenantCachedAssets = [
 // Precache assets on install
 self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => {
-        const cacheList = precachedAssets.concat(permenantCachedAssets);
-        return cache.addAll(cacheList);
+        //const cacheList = precachedAssets.concat(permenantCachedAssets);
+        //console.log(cacheList);
+        return cache.addAll(precachedAssets);
     }));
   });
   
@@ -30,9 +31,9 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', function (event) {
     const url = new URL(event.request.url);
     const isPrecachedRequest = precachedAssets.includes(url.pathname);
-    const isPermenantPrecachedRequest = permenantCachedAssets.includes(url.pathname);
+    //const isPermenantPrecachedRequest = permenantCachedAssets.includes(url.pathname);
     // ToDo refesh isPrecachedRequest
-    if (isPrecachedRequest || isPermenantPrecachedRequest) {
+    if (isPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request.url);
         }));
