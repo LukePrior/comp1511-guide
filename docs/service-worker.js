@@ -99,19 +99,16 @@ self.addEventListener('fetch', function (event) {
     const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
     if (isPermenantPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
-            console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
     } else if (event.request.method === 'POST') { //GraphQL
         event.respondWith(staleWhileRevalidate(event));
     }  else {
-        console.log("Serve: " + event.request.url);
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request).then((cachedResponse) => {
                 const fetchedResponse = fetch(event.request).then((networkResponse) => {
                     cache.put(event.request, networkResponse.clone());
-      
-                    console.log(JSON.stringify(networkResponse));
+
                     return networkResponse;
                 });
       
