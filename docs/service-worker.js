@@ -42,7 +42,7 @@ const fillServiceWorkerCache = function () {
 self.addEventListener('fetch', function (event) {
     const url = new URL(event.request.url);
     const isPrecachedRequest = precachedAssets.includes(url.pathname);
-    const isPermenantPrecachedRequest = permenantCachedAssets.includes(url.pathname);
+    const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
     if (isPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             console.log("Serve: " + event.request.url);
