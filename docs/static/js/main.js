@@ -20,7 +20,7 @@ function testSet() {
     $('.run-code').click(function (event) {
       event.preventDefault();
       runCode(this);
-  });
+    });
     $('.show-solution').click(function (event) {
         event.preventDefault();
         showSolution(this);
@@ -32,7 +32,7 @@ function testSet() {
     $('.test-code').click(function (event) {
       event.preventDefault();
       testCode(this);
-  });
+    });
     $('.save-code').click(function (event) {
         event.preventDefault();
         saveCode(this);
@@ -40,13 +40,15 @@ function testSet() {
     $('.hidden-loader').change(function (event) {
       event.preventDefault();
       loadCode(this);
-  });
+    });
+    getLocalSave()
 }
 
 async function runCode(e) {
   var selector = "#"+e.id
   var snippet = $(selector);
   var code = await snippet[0].getEditorProgram();
+  localStorage.setItem(e.id, code);
   snippet[0].interactiveRunCode("clangpp", code);
 }
 
@@ -77,6 +79,16 @@ async function testCode(e) {
     stdin = tests[test]
     var result = await snippet[0].headlessRunCode("clangpp", code, stdin); // waiting for fix
     console.log(result);
+  }
+}
+
+async function getLocalSave() {
+  var snippets = $("runno-run");
+  for (var i=0; i<snippets.length; i++) {
+      var code = localStorage.getItem(snippets[i].id);
+      if (code != null) {
+        snippets[i].setEditorProgram("cpp", "clangpp", code);
+      }
   }
 }
 
