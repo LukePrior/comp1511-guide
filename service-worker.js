@@ -51,7 +51,7 @@ self.addEventListener('fetch', function (event) {
             console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
-    } else if (url.pathname == graphQL) {
+    } else if (event.request.url == graphQL) {
         console.log("GraphQL: " + event.request.url);
         return graphQLResult;
     } else {
