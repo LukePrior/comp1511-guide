@@ -18,6 +18,9 @@ const permenantCachedAssets = [
     'https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz'
 ];
 
+const graphQL = "https://registry.wapm.io/graphql";
+const graphQLResult = {"data":{"command":{"command":"runno-clang","module":{"name":"clang","abi":"wasi","source":"clang.wasm"},"packageVersion":{"version":"0.1.2","package":{"name":"taybenlor/runno-clang","displayName":"taybenlor/runno-clang"},"filesystem":[{"wasm":"/sys","host":"sysroot"}],"distribution":{"downloadUrl":"https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz"},"modules":[{"name":"clang","publicUrl":"https://registry-cdn.wapm.io/contents/taybenlor/runno-clang/0.1.2/clang.wasm","abi":"wasi"},{"name":"wasm-ld","publicUrl":"https://registry-cdn.wapm.io/contents/taybenlor/runno-clang/0.1.2/wasm-ld.wasm","abi":"wasi"}],"commands":[{"command":"runno-clang","module":{"name":"clang","abi":"wasi","source":"clang.wasm"}},{"command":"runno-wasm-ld","module":{"name":"wasm-ld","abi":"wasi","source":"wasm-ld.wasm"}}]}}}}
+
 // Precache assets on install
 self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => {
@@ -48,6 +51,9 @@ self.addEventListener('fetch', function (event) {
             console.log("Serve: " + event.request.url);
             return cache.match(event.request.url);
         }));
+    } else if (url.pathname == graphQL) {
+        console.log("GraphQL: " + event.request.url);
+        return graphQLResult;
     } else {
         console.log("Fallback: " + event.request.url);
     }
