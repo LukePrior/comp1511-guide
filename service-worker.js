@@ -3,6 +3,7 @@ const cacheName = 'main_cache';
 
 // Assets to precache but reload
 const precachedAssets = [
+    '/index.html',
     '/static/css/main.css',
     '/static/js/index.js',
     '/manifest.json',
