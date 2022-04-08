@@ -8,7 +8,12 @@ function testSet() {
     var snippets = $("runno-run");
     for (var i=0; i<snippets.length; i++) {
         snippets[i].setEditorProgram("cpp", "clangpp", generate_snippet(snippets[i].id));
+        snippets[i].hideControls()
     }
+    $('.run-code').click(function (event) {
+      event.preventDefault();
+      runCode(this);
+  });
     $('.show-solution').click(function (event) {
         event.preventDefault();
         showSolution(this);
@@ -29,6 +34,13 @@ function testSet() {
       event.preventDefault();
       loadCode(this);
   });
+}
+
+async function runCode(e) {
+  var selector = "#"+e.id
+  var snippet = $(selector);
+  var code = await snippet[0].getEditorProgram();
+  snippet[0].interactiveRunCode("clangpp", code);
 }
 
 function showSolution(e) {
