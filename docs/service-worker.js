@@ -107,14 +107,23 @@ async function getCache(request) {
 self.addEventListener('fetch', function (event) {
     const url = new URL(event.request.url);
     const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
-    const isPrecachedAssets = precachedAssets.includes(url.pathname);
     if (isPermenantPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
-            return cache.match(event.request.url);
+            return cache.match(event.request.url).then((cachedResponse) => {
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+      
+                return fetch(event.request).then((fetchedResponse) => {
+                    cache.put(event.request, fetchedResponse.clone());
+      
+                    return fetchedResponse;
+                });
+            });
         }));
     } else if (event.request.method === 'POST') { //GraphQL
         event.respondWith(staleWhileRevalidate(event));
-    } else if (isPrecachedAssets) {
+    } else {
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request).then((cachedResponse) => {
                 const fetchedResponse = fetch(event.request).then((networkResponse) => {
@@ -122,10 +131,6 @@ self.addEventListener('fetch', function (event) {
 
                     return networkResponse;
                 })
-                .catch((err) => {
-                    console.error(err);
-                    return;
-                });
       
                 return cachedResponse || fetchedResponse;
             });
