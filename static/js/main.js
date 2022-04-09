@@ -73,7 +73,7 @@ function showSolution(e) {
     var selector = "#"+e.id
     var snippet = $(selector);
     if (confirm("Reveal solution (this will overide any existing code)")) {
-        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
+        //snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
         snippet[0].setEditorProgram("cpp", "clangpp", generate_solution(e.id));
     }
 }
@@ -82,7 +82,7 @@ function resetCode(e) {
     var selector = "#"+e.id
     var snippet = $(selector);
     if (confirm("Reset code (this will overide any existing code)")) {
-        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
+        //snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
         snippet[0].setEditorProgram("cpp", "clangpp", generate_snippet(e.id));
     }
 }
@@ -157,7 +157,7 @@ async function loadCode(e) {
     var reader = new FileReader();
     reader.readAsText(file, "UTF-8");
     reader.onload = function (evt) {
-        snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
+        //snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
         snippet[0].setEditorProgram("cpp", "clangpp", evt.target.result);
     }
     reader.onerror = function (evt) {
