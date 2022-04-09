@@ -13,6 +13,8 @@ if ('serviceWorker' in navigator) {
 // Inset code snippets to webpage
 function testSet() {
     var snippets = $("runno-run");
+    snippets.css('display','');
+    snippets.css('min-height','');
     for (var i=0; i<snippets.length; i++) {
         snippets[i].setEditorProgram("cpp", "clangpp", generate_snippet(snippets[i].id));
         snippets[i].hideControls()
