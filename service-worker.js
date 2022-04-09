@@ -23,7 +23,8 @@ const precachedAssets = [
 
 // Assets to permenantly precache
 const permenantCachedAssets = [
-    'https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz'
+    'https://registry-cdn.wapm.io/packages/taybenlor/runno-clang/runno-clang-0.1.2.tar.gz',
+    'https://registry-cdn.wapm.io/packages/richard/clear/clear-0.0.4.tar.gz'
 ];
 
 // Precache assets on install
