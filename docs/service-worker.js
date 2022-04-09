@@ -27,6 +27,11 @@ const permenantCachedAssets = [
     'https://registry-cdn.wapm.io/packages/richard/clear/clear-0.0.4.tar.gz'
 ];
 
+//Assets to skip
+const skipAssets = [
+    '/runno-message'
+]
+
 // Precache assets on install
 self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(cacheName).then((cache) => {
@@ -100,20 +105,26 @@ async function getCache(request) {
 }
 
 self.addEventListener('fetch', function (event) {
+    const url = new URL(event.request.url);
     const isPermenantPrecachedRequest = permenantCachedAssets.includes(event.request.url);
+    const isPrecachedAssets = precachedAssets.includes(url.pathname);
     if (isPermenantPrecachedRequest) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request.url);
         }));
     } else if (event.request.method === 'POST') { //GraphQL
         event.respondWith(staleWhileRevalidate(event));
-    }  else {
+    } else if (isPrecachedAssets) {
         event.respondWith(caches.open(cacheName).then((cache) => {
             return cache.match(event.request).then((cachedResponse) => {
                 const fetchedResponse = fetch(event.request).then((networkResponse) => {
                     cache.put(event.request, networkResponse.clone());
 
                     return networkResponse;
+                })
+                .catch((err) => {
+                    console.error(err);
+                    return;
                 });
       
                 return cachedResponse || fetchedResponse;
