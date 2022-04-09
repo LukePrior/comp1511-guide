@@ -26,355 +26,371 @@
 </head>
 
 <body>
-  <h1>The Ultimate COMP1511 Guide!</h1>
-  <div class="question">
-    <h2>Addition (*)</h2>
-    <p>Create a program which will add together the number of students and tutors in a class.</p>
-    <p>This program should ask for two integers using the message Please enter the number of students and tutors: and then display the sum of the integers as <code>students</code> + <code>tutors</code> = <code>sum</code>.</p>
-    <p><i>Note: You can assume that the values entered will always be 2 whole numbers (i.e integers).</i></p>
-    <button type="button" class="collapsible">Hint</button>
-    <div class="collapsible_content">
-      <p>Make sure to replace students and tutors with the numbers entered in the same order and the sum with the sum of the two numbers.</p>
+  <div class="body">
+    <h1>The Ultimate COMP1511 Guide!</h1>
+    <div class="question">
+      <h2>Addition (*)</h2>
+      <p>Create a program which will add together the number of students and tutors in a class.</p>
+      <p>This program should ask for two integers using the message Please enter the number of students and tutors: and then display the sum of the integers as <code>students</code> + <code>tutors</code> = <code>sum</code>.</p>
+      <p><i>Note: You can assume that the values entered will always be 2 whole numbers (i.e integers).</i></p>
+      <button type="button" class="collapsible">Hint</button>
+      <div class="collapsible_content">
+        <p>Make sure to replace students and tutors with the numbers entered in the same order and the sum with the sum of the two numbers.</p>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
+          Please enter the number of students and tutors: <b>2</b> <b>5</b>
+          2 + 5 = 7
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
+          Please enter the number of students and tutors: <b>3</b> <b>5</b>
+          3 + 5 = 8
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
+          Please enter the number of students and tutors: <b>-1</b> <b>5</b>
+          -1 + 5 = 4
+        </code>
+        <br>
+      </div>
+      <br>
+      <runno-run id="1" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="1">Run</button>
+      <button class="reset-code button" id="1">Reset</button>
+      <button class="show-solution button" id="1">Solution</button>
+      <button class="test-code button" id="1">Test</button>
+      <button class="save-code button" id="1">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load1" type="file" accept=".c"></input>
+      <button class="load-code button" id="1" onclick="document.getElementById('load1').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Don't Be So Negative! (*)</h2>
+      <p>Write a program that uses <code>scanf</code> to get a number from a user and prints "Don't be so negative!" if they entered a negative number.</p>
+      <p>If the number is positive, the program should print "You have entered a positive number."</p>
+      <p>If the user enters the number 0, the program should print "You have entered zero."</p>
+      <p><i>Note: you can assume that the number will always be a whole number (i.e. an integer)
+        Your program should behave as follows:</i></p>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
+          <b>3</b>
+          You have entered a positive number.
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
+          <b>-3</b>
+          Don't be so negative!
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
+          <b>0</b>
+          You have entered zero.
+        </code>
+        <br>
+      </div>
+      <br>
+      <runno-run id="2" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="2">Run</button>
+      <button class="reset-code button" id="2">Reset</button>
+      <button class="show-solution button" id="2">Solution</button>
+      <button class="test-code button" id="2">Test</button>
+      <button class="save-code button" id="2">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load2" type="file" accept=".c"></input>
+      <button class="load-code button" id="2" onclick="document.getElementById('load2').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Print Letters, Given Their Numbers (*)</h2>
+      <p>Write a C program that prints a letter from the alphabet in either uppercase or lowercase.</p>
+      <p>First, scan in a character. This character will determine whether the letter printed is in uppercase or lowercase."</p>
+      <p>Should the character be 'y' or 'n', i.e. 'yes' or 'no', the letter will be uppercase or lowercase respectively. If given any other character, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
+      <p><i>Note: "Terminate the program" does NOT mean an 'exit' function! What is the line that occurs at the end of every main function to terminate the program? (Starts with 'r')</i></p>
+      <p>Secondly, scan in an integer. This integer is the index we will use to determine which letter of the alphabet is printed.</p>
+      <p>Should the integer be a number between 1 and 26 (inclusive), print the corresponding letter of the alphabet. If it is outside of the range, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
+      <p>For example, index 1 will correspond to 'A', index 2 will correspond to 'B' and so on till we reach index 26 which will correspond to 'Z'.</p>
+      <button type="button" class="collapsible">Hint</button>
+      <div class="collapsible_content">
+        <p>We <i>could</i> manually do a ton of <code>if</code> statements for each index we have to translate to a letter.</p>
+        <p>BUT, our <code>ASCII</code> table handily puts all the letters side by side in value.</p>
+        <p>So consider here that, in the alphabet:</p>
+        <ul>
+          <li>'A' has index=1</li>
+          <li>'B' has index=2</li>
+          <li>...</li>
+          <li>'Z' has index=26</li>
+        </ul>
+        <p>We can see our <code>ASCII</code> table by typing <b>ascii</b> into our terminal.</p>
+        <p><b>How can we use both the alphabet index and the <code>ASCII</code> table together for this problem?</b></p>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
+          Uppercase: <b>Y</b>
+          Index: <b>5</b>
+          The letter is E
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
+          Uppercase: <b>n</b>
+          Index: <b>18</b>
+          The letter is r
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
+          Uppercase: <b>a</b>
+          You need to enter 'y' or 'n'
+          Exiting the program with error code 1
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
+          Uppercase: <b>y</b>
+          Index: <b>100</b>
+          You need to enter a number between 1 and 26 inclusive
+          Exiting the program with error code 2
+        </code>
+        <br>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Assumptions</button>
+      <div class="collapsible_content">
+        <ul>
+          <li>You may assume you will always be given a character first.</li>
+          <li>You may assume you will always be given a whole number second.</li>
+        </ul>
+      </div>
+      <br>
+      <runno-run id="3" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="3">Run</button>
+      <button class="reset-code button" id="3">Reset</button>
+      <button class="show-solution button" id="3">Solution</button>
+      <button class="test-code button" id="3">Test</button>
+      <button class="save-code button" id="3">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load3" type="file" accept=".c"></input>
+      <button class="load-code button" id="3" onclick="document.getElementById('load3').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Leap Year Calculator (**)</h2>
+      <p>Write a C program that reads a year and then prints whether that year is a leap year.</p>
+      <button type="button" class="collapsible">Hint</button>
+      <div class="collapsible_content">
+        <p>You only need use the <b>int</b> type, modulus (%) and <b>if</b> statement(s).</p>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
+          Enter year: <b>2017</b>
+          2017 is not a leap year.
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
+          Enter year: <b>2016</b>
+          2016 is a leap year.
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
+          Enter year: <b>2000</b>
+          2000 is a leap year.
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
+          Enter year: <b>3000</b>
+          3000 is not a leap year.
+        </code>
+        <br>
+      </div>
+      <br>
+      <button type="button" class="collapsible">Assumptions</button>
+      <div class="collapsible_content">
+        <ul>
+          <li>You may assume the tested year is not negative.</li>
+          <li>You may assume the tested year is a whole number.</li>
+        </ul>
+      </div>
+      <br>
+      <runno-run id="4" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="4">Run</button>
+      <button class="reset-code button" id="4">Reset</button>
+      <button class="show-solution button" id="4">Solution</button>
+      <button class="test-code button" id="4">Test</button>
+      <button class="save-code button" id="4">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load4" type="file" accept=".c"></input>
+      <button class="load-code button" id="4" onclick="document.getElementById('load4').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Dice Range (**)</h2>
+      <p>We will often roll multiple dice at the same time.</p>
+      <p>Write a C program that reads the number of sides on a set of dice and how many of them are being rolled. It then outputs the range of possible totals that these dice can produce as well as the average value.</p>
+      Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.
+      <p><i>Note: You can assume that the user will always enter 2 integers.</i></p>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
+          Enter the number of sides on your dice: <b>6</b>
+          Enter the number of sides on your dice: <b>2</b>
+          Your dice range is 2 to 12. 
+          The average value is 7.000000
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
+          Enter the number of sides on your dice: <b>8</b>
+          Enter the number of sides on your dice: <b>3</b>
+          Your dice range is 3 to 24. 
+          The average value is 13.500000
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
+          Enter the number of sides on your dice: <b>20</b>
+          Enter the number of sides on your dice: <b>4</b>
+          Your dice range is 4 to 80. 
+          The average value is 42.000000
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
+          Enter the number of sides on your dice: <b>-5</b>
+          Enter the number of sides on your dice: <b>4</b>
+          These dice will not produce a range.
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
+          Enter the number of sides on your dice: <b>6</b>
+          Enter the number of sides on your dice: <b>0</b>
+          These dice will not produce a range.
+        </code>
+        <br>
+      </div>
+      <br>
+      <runno-run id="5" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="5">Run</button>
+      <button class="reset-code button" id="5">Reset</button>
+      <button class="show-solution button" id="5">Solution</button>
+      <button class="test-code button" id="5">Test</button>
+      <button class="save-code button" id="5">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load5" type="file" accept=".c"></input>
+      <button class="load-code button" id="5" onclick="document.getElementById('load5').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Word Addition (***)</h2>
+      <p>Create a program that asks for two integers using the message Please enter two integers: and then displays the sum of the integers as <code>n</code> + <code>n</code> = <code>sum</code>.</p>
+      <p>Any numbers that are between zero and ten should appear as words. This also applies to negative numbers between negative ten and zero. All other numbers should appear as decimal integers.</p>
+      <p><i>Note: Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.</i></p>
+      <p><i>Note: there is no special trick to convert numbers to words in this exercise. It will require many many if statements, and copy/paste is your friend.</i></p>
+      <button type="button" class="collapsible">Examples</button>
+      <div class="collapsible_content">
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
+          Please enter two integers: <b>2</b> <b>5</b>
+          two + five = seven
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
+          Please enter two integers: <b>3</b> <b>0</b>
+          three + zero = three
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
+          Please enter two integers: <b>-1</b> <b>5</b>
+          negative one + five = four
+        </code>
+        <br>
+        <code class="block">
+          <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
+          Please enter two integers: <b>10</b> <b>5</b>
+          ten + five = 15
+        </code>
+        <br>
+      </div>
+      <br>
+      <runno-run id="6" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="6">Run</button>
+      <button class="reset-code button" id="6">Reset</button>
+      <button class="show-solution button" id="6">Solution</button>
+      <button class="test-code button" id="6">Test</button>
+      <button class="save-code button" id="6">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load6" type="file" accept=".c"></input>
+      <button class="load-code button" id="6" onclick="document.getElementById('load6').click();">Load</button>
+    </div>
+    <hr class="solid">
+    <div class="question">
+      <h2>Create a Game! (****)</h2>
+      <p>Write a C program which reads in integers and/or characters until the user wins or loses the game.</p>
+      <p>This is the starter code for the exercise. Add to it to create an adventure game.</p>
+      <button type="button" class="collapsible">Assumptions</button>
+      <div class="collapsible_content">
+        <ul>
+          <li>You should only use the techniques taught to you in Week 1 and 2:</li>
+            <ul>
+              <li>Printf / Scanf</li>
+              <li>Math (+, -, /, *)</li>
+              <li>Char, Int and Double variables</li>
+              <li>#define constants</li>
+              <li>If Statements</li>
+              <li>Structs</li>
+              <li>While Loops</li>
+            </ul>
+          <li>If you want to get extra creative, you can also use:</li>
+            <ul>
+              <li>The random() function from stdlib.h</li>
+              <li>Functions from math.h (like sin or cos)</li>
+              <li>Colors in your terminal</li>
+            </ul>
+          <li>You can only add to the starter code. You should not remove anything that is already there.</li>
+        </ul>
+      </div>
+      <br>
+      <runno-run id="7" runtime="clangpp" editor controls>
+      </runno-run>
+      <button class="run-code button" id="7">Run</button>
+      <button class="reset-code button" id="7">Reset</button>
+      <button class="show-solution button" id="7">Solution</button>
+      <button class="test-code button" id="7">Test</button>
+      <button class="save-code button" id="7">Save</button>
+      <input class="hidden-loader button" style="display:none;" id="load7" type="file" accept=".c"></input>
+      <button class="load-code button" id="7" onclick="document.getElementById('load7').click();">Load</button>
     </div>
     <br>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
-        Please enter the number of students and tutors: <b>2</b> <b>5</b>
-        2 + 5 = 7
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
-        Please enter the number of students and tutors: <b>3</b> <b>5</b>
-        3 + 5 = 8
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./addition</b>
-        Please enter the number of students and tutors: <b>-1</b> <b>5</b>
-        -1 + 5 = 4
-      </code>
-      <br>
-    </div>
     <br>
-    <runno-run id="1" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="1">Run</button>
-    <button class="reset-code button" id="1">Reset</button>
-    <button class="show-solution button" id="1">Solution</button>
-    <button class="test-code button" id="1">Test</button>
-    <button class="save-code button" id="1">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load1" type="file" accept=".c"></input>
-    <button class="load-code button" id="1" onclick="document.getElementById('load1').click();">Load</button>
+    <br>
+    <br>
+    <br>
   </div>
-  <div class="question">
-    <h2>Don't Be So Negative! (*)</h2>
-    <p>Write a program that uses <code>scanf</code> to get a number from a user and prints "Don't be so negative!" if they entered a negative number.</p>
-    <p>If the number is positive, the program should print "You have entered a positive number."</p>
-    <p>If the user enters the number 0, the program should print "You have entered zero."</p>
-    <p><i>Note: you can assume that the number will always be a whole number (i.e. an integer)
-      Your program should behave as follows:</i></p>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
-        <b>3</b>
-        You have entered a positive number.
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
-        <b>-3</b>
-        Don't be so negative!
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./negative</b>
-        <b>0</b>
-        You have entered zero.
-      </code>
-      <br>
-    </div>
-    <br>
-    <runno-run id="2" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="2">Run</button>
-    <button class="reset-code button" id="2">Reset</button>
-    <button class="show-solution button" id="2">Solution</button>
-    <button class="test-code button" id="2">Test</button>
-    <button class="save-code button" id="2">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load2" type="file" accept=".c"></input>
-    <button class="load-code button" id="2" onclick="document.getElementById('load2').click();">Load</button>
-  </div>
-  <div class="question">
-    <h2>Print Letters, Given Their Numbers (*)</h2>
-    <p>Write a C program that prints a letter from the alphabet in either uppercase or lowercase.</p>
-    <p>First, scan in a character. This character will determine whether the letter printed is in uppercase or lowercase."</p>
-    <p>Should the character be 'y' or 'n', i.e. 'yes' or 'no', the letter will be uppercase or lowercase respectively. If given any other character, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
-    <p><i>Note: "Terminate the program" does NOT mean an 'exit' function! What is the line that occurs at the end of every main function to terminate the program? (Starts with 'r')</i></p>
-    <p>Secondly, scan in an integer. This integer is the index we will use to determine which letter of the alphabet is printed.</p>
-    <p>Should the integer be a number between 1 and 26 (inclusive), print the corresponding letter of the alphabet. If it is outside of the range, print the corresponding error message and terminate the program with the appropriate error number as given in the examples below.</p>
-    <p>For example, index 1 will correspond to 'A', index 2 will correspond to 'B' and so on till we reach index 26 which will correspond to 'Z'.</p>
-    <button type="button" class="collapsible">Hint</button>
-    <div class="collapsible_content">
-      <p>We <i>could</i> manually do a ton of <code>if</code> statements for each index we have to translate to a letter.</p>
-      <p>BUT, our <code>ASCII</code> table handily puts all the letters side by side in value.</p>
-      <p>So consider here that, in the alphabet:</p>
-      <ul>
-        <li>'A' has index=1</li>
-        <li>'B' has index=2</li>
-        <li>...</li>
-        <li>'Z' has index=26</li>
-      </ul>
-      <p>We can see our <code>ASCII</code> table by typing <b>ascii</b> into our terminal.</p>
-      <p><b>How can we use both the alphabet index and the <code>ASCII</code> table together for this problem?</b></p>
-    </div>
-    <br>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
-        Uppercase: <b>Y</b>
-        Index: <b>5</b>
-        The letter is E
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
-        Uppercase: <b>n</b>
-        Index: <b>18</b>
-        The letter is r
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
-        Uppercase: <b>a</b>
-        You need to enter 'y' or 'n'
-        Exiting the program with error code 1
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./get_letter</b>
-        Uppercase: <b>y</b>
-        Index: <b>100</b>
-        You need to enter a number between 1 and 26 inclusive
-        Exiting the program with error code 2
-      </code>
-      <br>
-    </div>
-    <br>
-    <button type="button" class="collapsible">Assumptions</button>
-    <div class="collapsible_content">
-      <ul>
-        <li>You may assume you will always be given a character first.</li>
-        <li>You may assume you will always be given a whole number second.</li>
-      </ul>
-    </div>
-    <br>
-    <runno-run id="3" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="3">Run</button>
-    <button class="reset-code button" id="3">Reset</button>
-    <button class="show-solution button" id="3">Solution</button>
-    <button class="test-code button" id="3">Test</button>
-    <button class="save-code button" id="3">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load3" type="file" accept=".c"></input>
-    <button class="load-code button" id="3" onclick="document.getElementById('load3').click();">Load</button>
-  </div>
-  <div class="question">
-    <h2>Leap Year Calculator (**)</h2>
-    <p>Write a C program that reads a year and then prints whether that year is a leap year.</p>
-    <button type="button" class="collapsible">Hint</button>
-    <div class="collapsible_content">
-      <p>You only need use the <b>int</b> type, modulus (%) and <b>if</b> statement(s).</p>
-    </div>
-    <br>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
-        Enter year: <b>2017</b>
-        2017 is not a leap year.
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
-        Enter year: <b>2016</b>
-        2016 is a leap year.
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
-        Enter year: <b>2000</b>
-        2000 is a leap year.
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./is_leap_year</b>
-        Enter year: <b>3000</b>
-        3000 is not a leap year.
-      </code>
-      <br>
-    </div>
-    <br>
-    <button type="button" class="collapsible">Assumptions</button>
-    <div class="collapsible_content">
-      <ul>
-        <li>You may assume the tested year is not negative.</li>
-        <li>You may assume the tested year is a whole number.</li>
-      </ul>
-    </div>
-    <br>
-    <runno-run id="4" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="4">Run</button>
-    <button class="reset-code button" id="4">Reset</button>
-    <button class="show-solution button" id="4">Solution</button>
-    <button class="test-code button" id="4">Test</button>
-    <button class="save-code button" id="4">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load4" type="file" accept=".c"></input>
-    <button class="load-code button" id="4" onclick="document.getElementById('load4').click();">Load</button>
-  </div>
-  <div class="question">
-    <h2>Dice Range (**)</h2>
-    <p>We will often roll multiple dice at the same time.</p>
-    <p>Write a C program that reads the number of sides on a set of dice and how many of them are being rolled. It then outputs the range of possible totals that these dice can produce as well as the average value.</p>
-    Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.
-    <p><i>Note: You can assume that the user will always enter 2 integers.</i></p>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
-        Enter the number of sides on your dice: <b>6</b>
-        Enter the number of sides on your dice: <b>2</b>
-        Your dice range is 2 to 12. 
-        The average value is 7.000000
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
-        Enter the number of sides on your dice: <b>8</b>
-        Enter the number of sides on your dice: <b>3</b>
-        Your dice range is 3 to 24. 
-        The average value is 13.500000
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
-        Enter the number of sides on your dice: <b>20</b>
-        Enter the number of sides on your dice: <b>4</b>
-        Your dice range is 4 to 80. 
-        The average value is 42.000000
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
-        Enter the number of sides on your dice: <b>-5</b>
-        Enter the number of sides on your dice: <b>4</b>
-        These dice will not produce a range.
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./dice_range</b>
-        Enter the number of sides on your dice: <b>6</b>
-        Enter the number of sides on your dice: <b>0</b>
-        These dice will not produce a range.
-      </code>
-      <br>
-    </div>
-    <br>
-    <runno-run id="5" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="5">Run</button>
-    <button class="reset-code button" id="5">Reset</button>
-    <button class="show-solution button" id="5">Solution</button>
-    <button class="test-code button" id="5">Test</button>
-    <button class="save-code button" id="5">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load5" type="file" accept=".c"></input>
-    <button class="load-code button" id="5" onclick="document.getElementById('load5').click();">Load</button>
-  </div>
-  <div class="question">
-    <h2>Word Addition (***)</h2>
-    <p>Create a program that asks for two integers using the message Please enter two integers: and then displays the sum of the integers as <code>n</code> + <code>n</code> = <code>sum</code>.</p>
-    <p>Any numbers that are between zero and ten should appear as words. This also applies to negative numbers between negative ten and zero. All other numbers should appear as decimal integers.</p>
-    <p><i>Note: Make sure to replace the n with the numbers entered in the same order and the sum with the sum of the two numbers.</i></p>
-    <p><i>Note: there is no special trick to convert numbers to words in this exercise. It will require many many if statements, and copy/paste is your friend.</i></p>
-    <button type="button" class="collapsible">Examples</button>
-    <div class="collapsible_content">
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
-        Please enter two integers: <b>2</b> <b>5</b>
-        two + five = seven
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
-        Please enter two integers: <b>3</b> <b>0</b>
-        three + zero = three
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
-        Please enter two integers: <b>-1</b> <b>5</b>
-        negative one + five = four
-      </code>
-      <br>
-      <code class="block">
-        <span style="color:green;font-weight:bold;">$</span> <b>./word_addition</b>
-        Please enter two integers: <b>10</b> <b>5</b>
-        ten + five = 15
-      </code>
-      <br>
-    </div>
-    <br>
-    <runno-run id="6" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="6">Run</button>
-    <button class="reset-code button" id="6">Reset</button>
-    <button class="show-solution button" id="6">Solution</button>
-    <button class="test-code button" id="6">Test</button>
-    <button class="save-code button" id="6">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load6" type="file" accept=".c"></input>
-    <button class="load-code button" id="6" onclick="document.getElementById('load6').click();">Load</button>
-  </div>
-  <div class="question">
-    <h2>Create a Game! (****)</h2>
-    <p>Write a C program which reads in integers and/or characters until the user wins or loses the game.</p>
-    <p>This is the starter code for the exercise. Add to it to create an adventure game.</p>
-    <button type="button" class="collapsible">Assumptions</button>
-    <div class="collapsible_content">
-      <ul>
-        <li>You should only use the techniques taught to you in Week 1 and 2:</li>
-          <ul>
-            <li>Printf / Scanf</li>
-            <li>Math (+, -, /, *)</li>
-            <li>Char, Int and Double variables</li>
-            <li>#define constants</li>
-            <li>If Statements</li>
-            <li>Structs</li>
-            <li>While Loops</li>
-          </ul>
-        <li>If you want to get extra creative, you can also use:</li>
-          <ul>
-            <li>The random() function from stdlib.h</li>
-            <li>Functions from math.h (like sin or cos)</li>
-            <li>Colors in your terminal</li>
-          </ul>
-        <li>You can only add to the starter code. You should not remove anything that is already there.</li>
-      </ul>
-    </div>
-    <br>
-    <runno-run id="7" runtime="clangpp" editor controls>
-    </runno-run>
-    <button class="run-code button" id="7">Run</button>
-    <button class="reset-code button" id="7">Reset</button>
-    <button class="show-solution button" id="7">Solution</button>
-    <button class="test-code button" id="7">Test</button>
-    <button class="save-code button" id="7">Save</button>
-    <input class="hidden-loader button" style="display:none;" id="load7" type="file" accept=".c"></input>
-    <button class="load-code button" id="7" onclick="document.getElementById('load7').click();">Load</button>
+  <div class="footer">
+    <p>Footer</p>
   </div>
   <script>
     window.process = window.process || {
