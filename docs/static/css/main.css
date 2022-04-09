@@ -13,13 +13,18 @@ code {
 }
 
 body {
+    background-color: #121212;
+    position: relative;
+    margin: 0px;
+}
+
+.body {
     max-width: 56rem;
     margin: auto;
-    background-color: #121212;
 }
 
 @media (max-width: 56rem) {
-    body {
+    .body {
       max-width: 90vw;
     }
   }
@@ -114,4 +119,20 @@ code.block {
 
 code.block b {
     color: rgba(255,255,255,.9);
+}
+
+/* Solid border */
+hr.solid {
+    border-color: #343434;
+    border-top: 3px solid #343434; /* 16dp elevation */
+    border-radius: 3px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #343434;
+    color: white;
+    text-align: center;
 }
