@@ -451,4 +451,6 @@ int main(void) {
 }`
 
 tests["1"] = [];
-tests["1"].push('5 5');
+tests["1"].push('2 5');
+tests["1"].push('3 5');
+tests["1"].push('-1 5');

@@ -92,10 +92,13 @@ async function testCode(e) {
   var snippet = $(selector);
   var code = await snippet[0].getEditorProgram();
   var tests = get_tests(e.id);
+  snippet[0].interactiveUnsafeCommand('clear', {}); // ToDo FIX
   for (var test in tests) {
     stdin = tests[test]
-    var result = await snippet[0].headlessRunCode("clangpp", code, stdin); // waiting for fix
-    console.log(result);
+    //var result = await snippet[0].headlessRunCode("clangpp", code, stdin); // waiting for fix
+    var number = parseInt(test) + 1;
+    var string = `echo "test #${number} (${tests[test]})"`;
+    snippet[0].interactiveUnsafeCommand(string, {});
   }
 }
 
