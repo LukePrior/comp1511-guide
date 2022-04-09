@@ -53,6 +53,9 @@ async function staleWhileRevalidate(event) {
         setCache(event.request.clone(), response.clone());
         return response;
       })
+      .catch((err) => {
+        console.error(err);
+      });
     return cachedResponse ? Promise.resolve(cachedResponse) : fetchPromise;
 }
 
